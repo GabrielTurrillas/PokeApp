@@ -93,7 +93,7 @@ const LeftZone = styled(Zone)`
 const RightZone = styled(Zone)`
   display:flex;
   align-items:center;
-  justify-content:end;
+  justify-content: end;
   padding-right:5rem;
   @media ${device.tablet}{
     padding-right:2rem;
