@@ -14,7 +14,6 @@ import Input from './components/Input';
 
 const Container = styled.div`
   position:fixed;
-  padding:10rem;
   display:flex;
   width:100%;
   height:100%;
