@@ -13,9 +13,10 @@ import Button from './components/Button';
 import Input from './components/Input';
 
 const Container = styled.div`
-  height:100vh;
-  width:100vw;
+  position:fixed;
   display:flex;
+  width:100%;
+  height:100%;
   align-items: center;
   justify-content: center;
   background-color: #C1BFFA;
@@ -32,30 +33,28 @@ const App: React.FC = () => {
 
   console.log('pokemon state:', pokemonState)
   return (
-    <div>
+    <Container>
       <GlobalStyles />
-      <Container>
-        {pokemonState.pokemon?.id ?
-          <Layout
-            title={<Title name={pokemonState.pokemon.name} />}
-            infoSection={<InfoSection
-              abilities={pokemonState.pokemon.abilities}
-              stats={pokemonState.pokemon.stats}
-            />}
-            spriteWindow={<SpriteWindow src={pokemonState.pokemon.sprites.front_default} />}
-            button={<Button onClick={handleSubmit} />}
-            input={<Input onChange={handleChange} />}
-          /> :
-          <Layout
-            title={<Title />}
-            infoSection={<InfoSection />}
-            spriteWindow={<SpriteWindow />}
-            button={<Button onClick={handleSubmit} />}
-            input={<Input onChange={handleChange} />}
-          />
-        }
-      </Container>
-    </div>
+      {pokemonState.pokemon?.id ?
+        <Layout
+          title={<Title name={pokemonState.pokemon.name} />}
+          infoSection={<InfoSection
+            abilities={pokemonState.pokemon.abilities}
+            stats={pokemonState.pokemon.stats}
+          />}
+          spriteWindow={<SpriteWindow src={pokemonState.pokemon.sprites.front_default} />}
+          button={<Button onClick={handleSubmit} />}
+          input={<Input onChange={handleChange} />}
+        /> :
+        <Layout
+          title={<Title />}
+          infoSection={<InfoSection />}
+          spriteWindow={<SpriteWindow />}
+          button={<Button onClick={handleSubmit} />}
+          input={<Input onChange={handleChange} />}
+        />
+      }
+    </Container>
   );
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PokemonType } from '../../actions/PokemonActionTypes'
+import { device } from '../../styles/sizes'
 
 interface InfoSectionI {
   abilities?: PokemonType['abilities']
@@ -8,7 +9,9 @@ interface InfoSectionI {
 }
 
 const Card = styled.div`
-  display:grid;
+  display:flex;
+  flex-direction:column;
+  justify-items:center;
   box-shadow: .5rem .5rem #1b1b1b;
   font-family:'Roboto', sans-serif;
   border-radius:10px;
@@ -20,11 +23,18 @@ const Container = styled(Card)`
   background-color: white;
   font-size: 1.3rem;
   width:100%;
+  height:fit-content;
   grid-row-gap: 15px;
   align-items:start;
-  padding-left:20px;
-  padding-right:20px;
-  padding-top:20px;
+  padding-left:2rem;
+  padding-right:2rem;
+  padding-top:2rem;
+  padding-bottom:2rem;
+  @media ${device.mobileM}{
+    border-radius:0;
+    box-shadow:none;
+    border:2px solid #1b1b1b;
+  }
   `
 
 const Zone = styled(Card)`
@@ -32,6 +42,7 @@ const Zone = styled(Card)`
 `
 
 const AbilityZone = styled(Zone)`
+  width:100%;
   display:grid;
   grid-row-gap: 5px;
   padding-top:10px;
@@ -40,33 +51,40 @@ const AbilityZone = styled(Zone)`
 
 
 const Title = styled(Zone)`
-justify-content: center;
+  width:100%;
+  justify-content: center;
   align-items: center;
   height: 40px;
 `
 
 const StatsCard = styled(Card)`
+  display:grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(3, 1fr);
   background-color:#F9E450;
   grid-gap: 4px;
   padding-top:7px;
   padding-bottom:7px;
-  padding-left:7px;
-  padding-right:7px;
+  padding-left:1rem;
+  padding-right:1rem;
+  @media ${device.mobileL}{
+    width:100%;
+  }
 `
 
 const Textbox = styled.div`
   display:flex;
   border:3px solid #1b1b1b;
   height:35px;
+  width:80%;
   color: #1b1b1b;
   background-color: white;
   border-radius:10px;
   justify-content:center;
   align-items:center;
-  margin-left:15px;
-  margin-right:15px;
+  margin-left:.5rem;
+  margin-right:1rem;
+  padding:1rem;
 `
 
 const StatCell = styled.div`
@@ -78,11 +96,12 @@ const StatCell = styled.div`
 const StatsName = styled.div`
   display:flex;
   align-items:center;
+  width:5rem;
   justify-content:center;
   background-color: #1b1b1b;
   border-radius:10px;
   min-height:35px;
-  font-size:1rem;
+  font-size:1rem; 
 `
 
 const InfoSection: React.FC<InfoSectionI> = ({
