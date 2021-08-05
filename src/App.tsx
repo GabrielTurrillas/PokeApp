@@ -20,6 +20,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #C1BFFA;
+  overflow:scroll;
 `
 
 const App: React.FC = () => {

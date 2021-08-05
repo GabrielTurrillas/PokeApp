@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { device } from '../../styles/sizes'
 
 interface InputI {
   onChange?: React.ChangeEventHandler<HTMLInputElement>
@@ -14,6 +15,9 @@ const Container = styled.input`
   cursor: text;
   font-size:1.2rem;
   letter-spacing:1px;
+  @media ${device.mobileM}{
+    font-size:1rem;
+  }
 `
 
 const Input: React.FC<InputI> = ({

@@ -33,9 +33,8 @@ const Container = styled.div<{
   box-shadow: .5rem .5rem #1b1b1b;
   font-family: 'Roboto', sans-serif;
   @media ${device.tablet}{
-    grid-template-rows: 1fr 8fr 2fr;
     width:100vw;
-    height:100vh;
+    height:65rem;
   }
   @media ${device.mobileL}{
     grid-template-columns: 1fr;
@@ -124,6 +123,7 @@ const BottomZone = styled(Zone)`
   }
   @media ${device.mobileL}{
     padding:0rem 2rem;
+    padding-bottom:1rem;
   }
   `
 
