@@ -25,9 +25,21 @@ const Container = styled.div`
 const Title: React.FC<TitleI> = ({
   name
 }) => {
+  const Capitalize = (name: any): string => {
+    const firstLetter: string = name.charAt(0)
+    const upperLetter: string = firstLetter.toUpperCase()
+    const capitalizedName: string = upperLetter + name.slice(1)
+    return capitalizedName
+  }
+
+  let capitalizedName: string = ' '
+  if (name) {
+    capitalizedName = Capitalize(name)
+  }
+
   return (
     <Container>
-      {name}
+      {capitalizedName}
     </Container>
   )
 }

@@ -29,7 +29,7 @@ const App: React.FC = () => {
   const pokemonState = useSelector((state: RootStore) => state.pokemon);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => setPokemonName(event.target.value)
   const handleSubmit = (): void => {
-    dispatch(GetPokemon(pokemonName))
+    dispatch(GetPokemon(pokemonName.toLocaleLowerCase()))
   }
 
   console.log('pokemon state:', pokemonState)
